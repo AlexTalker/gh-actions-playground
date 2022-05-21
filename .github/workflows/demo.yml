@@ -1,8 +1,15 @@
 name: demo
-on: [push]
+on: [ push, workflow_dispatch ]
 jobs:
+  # x86_64
   x64:
-    runs-on: ubuntu-latest
+    runs-on: [ ubuntu-latest, x64 ]
+    steps:
+      - uses: actions/checkout@v3
+      - run: uname -a
+  # ARM8
+  ARM64:
+    runs-on: [ ubuntu-latest, ARM64 ]
     steps:
       - uses: actions/checkout@v3
       - run: uname -a

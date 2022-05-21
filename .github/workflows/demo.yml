@@ -1,7 +1,7 @@
 name: demo
 on: [push]
 jobs:
-  check-bats-version:
+  x64:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

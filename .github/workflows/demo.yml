@@ -22,4 +22,5 @@ jobs:
           distro: manjarolinux_latest
           run: |
             uname -a;
+            sudo pacman -Syu;
             pacman -Qi pacman;

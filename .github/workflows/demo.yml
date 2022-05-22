@@ -18,6 +18,7 @@ jobs:
         id: runcmd
         with:
           arch: aarch64
-          distro: archarm_latest
+#           distro: archarm_latest
+          distro: manjarolinux_latest
           run: |
             uname -a

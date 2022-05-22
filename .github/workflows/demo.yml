@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 #       - uses: uraimo/run-on-arch-action@v2.2.0
-      - uses: AlexTalker/run-on-arch-action@76c4e0894c854aa4003dd9170a202a96813a00ba
+      - uses: AlexTalker/run-on-arch-action@fa52838d57b6f99559a71ec4f89a4ce6500dceaa
         id: runcmd
         with:
           arch: aarch64

@@ -3,13 +3,20 @@ on: [ push, workflow_dispatch ]
 jobs:
   # x86_64
   x64:
-    runs-on: [ ubuntu-latest, x64 ]
+    name: Checkout x64 support
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: uname -a
-  # ARM8
-  ARM64:
-    runs-on: [ ubuntu-latest, ARM64 ]
+  aarch64:
+    name: Checkout aarch64 support
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: uname -a
+      - uses: uraimo/run-on-arch-action@v2.2.0
+        id: runcmd
+        with:
+          arch: aarch64
+          distro: archarm_latest
+          run: |
+            uname -a

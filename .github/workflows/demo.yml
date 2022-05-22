@@ -21,4 +21,5 @@ jobs:
 #           distro: archarm_latest
           distro: manjarolinux_latest
           run: |
-            uname -a
+            uname -a;
+            pacman -Qi pacman;

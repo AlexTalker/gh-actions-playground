@@ -1,0 +1,19 @@
+name: Test RISC-V emulation
+on: [ workflow_dispatch ]
+jobs:
+  riscv64:
+    name: Checkout aarch64 support
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+#       - uses: uraimo/run-on-arch-action@v2.2.0
+      - uses: AlexTalker/run-on-arch-action@riscv64-support
+        id: runcmd
+        with:
+          arch: riscv64
+#           distro: archarm_latest
+          distro: archriscv_latest
+          run: |
+            uname -a;
+            sudo pacman -Syu;
+            pacman -Qi pacman;

@@ -1,5 +1,5 @@
 name: demo
-on: [ push, workflow_dispatch ]
+on: [ workflow_dispatch ]
 jobs:
   # x86_64
   x64:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 #       - uses: uraimo/run-on-arch-action@v2.2.0
-      - uses: AlexTalker/run-on-arch-action@d893bd9e2673dc02b9578539fe7f81d0bc529956
+      - uses: AlexTalker/run-on-arch-action@manjarolinux-support
         id: runcmd
         with:
           arch: aarch64

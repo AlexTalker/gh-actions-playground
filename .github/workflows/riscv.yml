@@ -15,5 +15,5 @@ jobs:
           distro: archriscv_latest
           run: |
             uname -a;
-            sudo pacman -Syu;
+            sudo pacman -Syu --noconfirm;
             pacman -Qi pacman;

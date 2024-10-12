@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: uname -a; modinfo nbd; ls -lah /sys/module/ndb/;
+      - run: uname -a; modinfo nbd; ls -lah /sys/module/ndb/ || true; modprobe nbd;
 

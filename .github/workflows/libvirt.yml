@@ -27,4 +27,5 @@ jobs:
           repository: "AlexTalker/vagrant-libvirt-ubuntu-riscv-box-draft"
           path: libvirt/workdir/
       - run: ls -lah libvirt/workdir/*
-
+      - run: bash libvirt/run.sh vagrant box add "./ubuntu-riscv-24.04.1.box" --name "ubuntu_riscv_2404"
+      - run: bash libvirt/run.sh vagrant list

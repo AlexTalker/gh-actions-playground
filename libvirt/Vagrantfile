@@ -1,0 +1,12 @@
+Vagrant.configure("2") do |config|
+    # config.vm.box = "ubuntu_riscv"
+    config.vm.box = "ubuntu_riscv_2404"
+    config.vm.provider :libvirt do |libvirt|
+      libvirt.machine_arch = 'riscv64'
+      # Default 512MiB is not enough to start the emulator
+      libvirt.memory = 4096
+      libvirt.loader = nil
+      libvirt.kernel = '/usr/lib/u-boot/qemu-riscv64/uboot.elf'
+      libvirt.machine_virtual_size = 6
+    end
+  end

@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: uname -a; df -h; cat /etc/os-release; pwd; mount
-      - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-clients 
+      - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-daemon-system libvirt-clients 
       - run: systemctl status libvirtd
       - run: sudo virsh -c qemu:///system list --all
 

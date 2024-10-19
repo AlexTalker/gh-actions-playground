@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: uname -a; df -h; cat /etc/os-release;
+      - run: uname -a; df -h; cat /etc/os-release; pwd; mount
 

@@ -7,7 +7,7 @@ echo "ROOTDIR=${SCRIPTDIR}" > "${SCRIPTDIR}"/.env
 mkdir "${SCRIPTDIR}"/vagrant.d
 mkdir "${SCRIPTDIR}"/workdir
 
-cp Vagrantfile "${SCRIPTDIR}"/workdir/
+cp "${SCRIPTDIR}"/Vagrantfile "${SCRIPTDIR}"/workdir/
 
 cd "${SCRIPTDIR}"
 

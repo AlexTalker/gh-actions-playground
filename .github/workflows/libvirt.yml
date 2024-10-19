@@ -29,4 +29,6 @@ jobs:
       - run: ls -lah libvirt/workdir/*
       - run: bash libvirt/run.sh -c 'ls -lah .'
       - run: bash libvirt/run.sh vagrant box add ubuntu_riscv_2024 vagrant-libvirt-ubuntu/ubuntu-riscv-24.04.1.box
-      - run: bash libvirt/run.sh vagrant list
+      - run: bash libvirt/run.sh vagrant box list
+      - run: bash libvirt/run.sh vagrant up
+      - run: bash libvirt/run.sh vagrant status

@@ -4,8 +4,10 @@ jobs:
   # x86_64
   x64:
     name: Checkout libvirt setup
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
       - run: uname -a; df -h; cat /etc/os-release; pwd; mount
+      - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-clients 
+      - run: sudo virsh -c qemu:///system list -a
 

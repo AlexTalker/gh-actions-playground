@@ -1,0 +1,1 @@
+FROM vagrantlibvirt/vagrant-libvirt:latest

@@ -13,4 +13,6 @@ jobs:
       - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-daemon-system libvirt-clients 
       - run: systemctl status libvirtd
       - run: sudo virsh -c qemu:///system list --all
+      - run: sudo DEBIAN_FRONTEND=noninteractive apt install qemu-system-misc u-boot-qemu
+      - run: sudo virsh -c qemu:///system capabilities
 

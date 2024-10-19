@@ -10,6 +10,7 @@ jobs:
       - run: uname -a; df -h; cat /etc/os-release; pwd; mount; sudo apparmor_status || true
       - run: sudo DEBIAN_FRONTEND=noninteractive apt update
       - run: sudo DEBIAN_FRONTEND=noninteractive apt upgrade
+      - run: sudo DEBIAN_FRONTEND=noninteractive apt install apparmor-utils
       - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-daemon-system libvirt-clients 
       - run: systemctl status libvirtd
       - run: sudo virsh -c qemu:///system list --all
@@ -18,6 +19,7 @@ jobs:
       - run: sudo DEBIAN_FRONTEND=noninteractive apt install podman podman-compose
       - run: podman run --rm hello-world
       - run: sudo apparmor_status
+      - run: sudo ls -lah /etc/apparmor.d/
       - run: sudo aa-disable /etc/apparmor.d/libvirtd
       - run: sudo apparmor_status
       - run: bash libvirt/setup.sh

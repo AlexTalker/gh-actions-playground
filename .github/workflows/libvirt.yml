@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
-      - run: uname -a; df -h; cat /etc/os-release; pwd; mount
+      - run: uname -a; df -h; cat /etc/os-release; pwd; mount; sudo apparmor_status || true
       - run: sudo DEBIAN_FRONTEND=noninteractive apt update
       - run: sudo DEBIAN_FRONTEND=noninteractive apt upgrade
       - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-daemon-system libvirt-clients 

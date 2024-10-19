@@ -18,6 +18,8 @@ jobs:
       - run: sudo DEBIAN_FRONTEND=noninteractive apt install podman podman-compose
       - run: podman run --rm hello-world
       - run: sudo apparmor_status
+      - run: sudo aa-disable /etc/apparmor.d/libvirtd
+      - run: sudo apparmor_status
       - run: bash libvirt/setup.sh
       - run: bash libvirt/run.sh vagrant version
       - name: Attempt to download RISCV64 box

@@ -25,6 +25,7 @@ jobs:
       - run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd
       - run: sudo ln -s /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
       - run: sudo apparmor_parser -R /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
+      - run: sudo bash -c 'echo "security_driver = []" >> /etc/libvirt/qemu.conf'
       - run: sudo ln -s /etc/apparmor.d/podman /etc/apparmor.d/disable/
       - run: sudo apparmor_parser -R /etc/apparmor.d/podman
       # - run: sudo aa-disable /etc/apparmor.d/libvirtd
@@ -53,10 +54,10 @@ jobs:
       - run: bash libvirt/run.sh -c 'ls -lah /var/run/libvirt/'
       - run: bash libvirt/run.sh vagrant box add ubuntu_riscv_2404 vagrant-libvirt-ubuntu/ubuntu-riscv-24.04.1.box
       - run: bash libvirt/run.sh vagrant box list
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3.19
-        with:
-          install-dependencies: false
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3.19
+      #   with:
+      #     install-dependencies: false
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant up
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant status
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- uname -r

@@ -66,4 +66,8 @@ jobs:
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant status
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- uname -a
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- cat /etc/os-release
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3.19
+        with:
+          install-dependencies: false
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant destroy

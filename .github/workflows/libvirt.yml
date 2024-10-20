@@ -21,7 +21,7 @@ jobs:
       - run: sudo apparmor_status
       - run: sudo ls -lah /etc/apparmor.d/
       - run: sudo ln -s /etc/apparmor.d/libvirt /etc/apparmor.d/disable/
-      - run: sudo apparmor_parser /etc/apparmor.d/libvirt
+      - run: sudo apparmor_parser -R /etc/apparmor.d/libvirt
       # - run: sudo aa-disable /etc/apparmor.d/libvirtd
       - run: sudo apparmor_status
       - run: bash libvirt/setup.sh

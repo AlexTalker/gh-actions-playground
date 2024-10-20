@@ -28,6 +28,9 @@ jobs:
       - run: sudo apparmor_status
       - run: systemctl status libvirtd
       - run: bash libvirt/setup.sh
+      - run: ls -lah ./libvirt/
+      - run: ls -lah ./libvirt/workdir
+      - run: ls -lah ./libvirt/vagrant.d
       - run: bash libvirt/run.sh vagrant version
       - name: Attempt to download RISCV64 box
         uses: actions/download-artifact@v4.1.8

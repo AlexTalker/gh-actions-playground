@@ -13,5 +13,5 @@ LIBVIRT_GROUP="${LIBVIRT_GROUP:-libvirt}"
 # This can take 12 args from argc maximum, not that anyone will hit it =)
 
 exec sudo --preserve-env --group "${LIBVIRT_GROUP}" --user "${USER_NAME}" \
-     sudo --preserve-env --group "${PRIMARY_GROUP_NAME}" --user "${USER_NAME} \
+     sudo --preserve-env --group "${PRIMARY_GROUP_NAME}" --user "${USER_NAME}" \
      "$@"

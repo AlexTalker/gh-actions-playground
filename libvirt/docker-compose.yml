@@ -5,7 +5,7 @@ services:
     network_mode: "bridge"
     environment:
       LIBVIRT_DEFAULT_URI: "qemu:///system"
-      VAGRANT_VAGRANTFILE: "${ROOTDIR}/Vagrantfile"
+      VAGRANT_VAGRANTFILE: "${ROOTDIR}/workdir/Vagrantfile"
       # USER_UID: 1000
       # USER_GID: 1000
         #

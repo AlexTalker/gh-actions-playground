@@ -5,12 +5,13 @@ services:
     network_mode: "bridge"
     environment:
       LIBVIRT_DEFAULT_URI: "qemu:///system"
+      VAGRANT_VAGRANTFILE: "${ROOTDIR}/Vagrantfile"
       # USER_UID: 1000
       # USER_GID: 1000
         #
         # USER_UID: 0
         # USER_GID: 0
-    working_dir: ${ROOTDIR}/workdir
+    # working_dir: ${ROOTDIR}/workdir
     volumes:
       - '/var/run/libvirt/:/var/run/libvirt/'
       - './vagrant.d:/.vagrant.d'

@@ -26,6 +26,7 @@ jobs:
       - run: sudo ln -s /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
       - run: sudo apparmor_parser -R /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
       - run: sudo bash -c 'echo "security_driver = []" >> /etc/libvirt/qemu.conf'
+      - run: sudo sudo cat /etc/libvirt/qemu.conf
       - run: sudo ln -s /etc/apparmor.d/podman /etc/apparmor.d/disable/
       - run: sudo apparmor_parser -R /etc/apparmor.d/podman
       # - run: sudo aa-disable /etc/apparmor.d/libvirtd

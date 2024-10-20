@@ -11,6 +11,7 @@ jobs:
       - run: sudo DEBIAN_FRONTEND=noninteractive apt update
       # - run: sudo DEBIAN_FRONTEND=noninteractive apt upgrade
       # - run: sudo DEBIAN_FRONTEND=noninteractive apt install apparmor-utils
+      - run: sudo DEBIAN_FRONTEND=noninteractive apt install tmate
       - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-daemon-system libvirt-clients 
       - run: systemctl status libvirtd
       - run: sudo virsh -c qemu:///system list --all
@@ -31,6 +32,10 @@ jobs:
       - run: ls -lah ./libvirt/
       - run: ls -lah ./libvirt/workdir
       - run: ls -lah ./libvirt/vagrant.d
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3.19
+        with:
+          install-dependencies: false
       - run: bash libvirt/run.sh vagrant version
       - name: Attempt to download RISCV64 box
         uses: actions/download-artifact@v4.1.8

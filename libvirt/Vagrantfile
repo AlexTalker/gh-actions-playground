@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
       # Default 512MiB is not enough to start the emulator
       libvirt.memory = 4096
       libvirt.loader = nil
-      libvirt.kernel = '/usr/lib/u-boot/qemu-riscv64/uboot.elf'
+      libvirt.kernel = '/usr/lib/u-boot/qemu-riscv64_smode/uboot.elf'
       libvirt.machine_virtual_size = 6
     end
   end

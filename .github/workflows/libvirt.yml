@@ -53,3 +53,5 @@ jobs:
       - run: bash libvirt/run.sh vagrant box list
       - run: sudo su -l $USER bash libvirt/run.sh vagrant up
       - run: sudo su -l $USER bash libvirt/run.sh vagrant status
+      - run: sudo su -l $USER bash libvirt/run.sh vagrant ssh -- uname -r
+      - run: sudo su -l $USER bash libvirt/run.sh vagrant ssh -- cat /etc/os-release

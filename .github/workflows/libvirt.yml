@@ -20,8 +20,8 @@ jobs:
       - run: podman run --rm hello-world
       - run: sudo apparmor_status
       - run: sudo ls -lah /etc/apparmor.d/
-      - run: sudo ln -s /etc/apparmor.d/libvirt /etc/apparmor.d/disable/
-      - run: sudo apparmor_parser -R /etc/apparmor.d/libvirt
+      - run: sudo ln -s /etc/apparmor.d/usr.sbin.libvirtd /etc/apparmor.d/disable/
+      - run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd
       # - run: sudo aa-disable /etc/apparmor.d/libvirtd
       - run: sudo apparmor_status
       - run: bash libvirt/setup.sh

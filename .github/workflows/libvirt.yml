@@ -64,6 +64,6 @@ jobs:
       - run: sync
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant up
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant status
-      - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- uname -r
+      - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- uname -a
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- cat /etc/os-release
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant destroy

@@ -1,6 +1,9 @@
 Vagrant.configure("2") do |config|
     # config.vm.box = "ubuntu_riscv"
     config.vm.box = "ubuntu_riscv_2404"
+
+    config.vm.synced_folder ".", "/vagrant", disabled: true
+
     config.vm.provider :libvirt do |libvirt|
       libvirt.machine_arch = 'riscv64'
       # Default 512MiB is not enough to start the emulator

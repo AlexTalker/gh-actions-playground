@@ -67,12 +67,12 @@ jobs:
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- uname -a
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- cat /etc/os-release
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt update
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3.19
-        with:
-          install-dependencies: false
-      - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt upgrade
-      - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt install podman
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3.19
+      #   with:
+      #     install-dependencies: false
+      - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt upgrade --assume-yes
+      - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes podman
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- podman run --rm -it docker.io/onemoreyetone/archriscv:latest cat /etc/os-release
       - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- podman run --rm -it docker.io/onemoreyetone/archriscv:latest sudo pacman -Syu --noconfirm
       # - name: Setup tmate session

@@ -51,5 +51,5 @@ jobs:
       - run: bash libvirt/run.sh -c 'ls -lah /var/run/libvirt/'
       - run: bash libvirt/run.sh vagrant box add ubuntu_riscv_2024 vagrant-libvirt-ubuntu/ubuntu-riscv-24.04.1.box
       - run: bash libvirt/run.sh vagrant box list
-      - run: bash libvirt/run.sh vagrant up || journalctl -u libvirtd --no-pager
+      - run: sudo su -l $USER bash libvirt/run.sh vagrant up || journalctl -u libvirtd --no-pager
       - run: bash libvirt/run.sh vagrant status

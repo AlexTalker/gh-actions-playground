@@ -51,7 +51,7 @@ jobs:
       - run: bash libvirt/run.sh -c 'ls -lah /var/run/libvirt/'
       - run: bash libvirt/run.sh vagrant box add ubuntu_riscv_2024 vagrant-libvirt-ubuntu/ubuntu-riscv-24.04.1.box
       - run: bash libvirt/run.sh vagrant box list
-      - run: sg libvirt "sg $(id -gn) 'libvirt/run.sh vagrant up'"
+      - run: OLDGROUP=$(id -gn); newgrp libvirt; newgrp $OLDGROUP; bash libvirt/run.sh vagrant up
       - run: sudo su -l $USER bash libvirt/run.sh vagrant status
       - run: sudo su -l $USER bash libvirt/run.sh vagrant ssh -- uname -r
       - run: sudo su -l $USER bash libvirt/run.sh vagrant ssh -- cat /etc/os-release

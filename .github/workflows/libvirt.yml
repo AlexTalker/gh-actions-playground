@@ -28,7 +28,7 @@ jobs:
       # - run: sudo aa-disable /etc/apparmor.d/libvirtd
       - run: sudo apparmor_status
       - run: systemctl status libvirtd
-      - run: sudo adduser \$USER libvirt
+      - run: bash -c 'sudo adduser $USER libvirt'
       - run: bash libvirt/setup.sh
       - run: ls -lah ./libvirt/
       - run: ls -lah ./libvirt/workdir

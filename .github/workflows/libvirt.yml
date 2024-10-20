@@ -72,7 +72,7 @@ jobs:
       #   with:
       #     install-dependencies: false
       # - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt upgrade --assume-yes
-      # - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes podman
+      - run: bash libvirt/sudo.sh bash libvirt/run.sh vagrant ssh -- sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes podman
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@v3.19
       #   with:

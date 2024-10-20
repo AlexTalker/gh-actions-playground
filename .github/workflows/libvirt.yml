@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: uname -a; df -h; cat /etc/os-release; pwd; mount; sudo apparmor_status || true
       - run: sudo DEBIAN_FRONTEND=noninteractive apt update
-      - run: sudo DEBIAN_FRONTEND=noninteractive apt upgrade
+      # - run: sudo DEBIAN_FRONTEND=noninteractive apt upgrade
       # - run: sudo DEBIAN_FRONTEND=noninteractive apt install apparmor-utils
       - run: sudo DEBIAN_FRONTEND=noninteractive apt install libvirt-daemon libvirt-daemon-system libvirt-clients 
       - run: systemctl status libvirtd
@@ -22,8 +22,11 @@ jobs:
       - run: sudo ls -lah /etc/apparmor.d/
       - run: sudo ln -s /etc/apparmor.d/usr.sbin.libvirtd /etc/apparmor.d/disable/
       - run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd
+      - run: sudo ln -s /etc/apparmor.d/podman /etc/apparmor.d/disable/
+      - run: sudo apparmor_parser -R /etc/apparmor.d/podman
       # - run: sudo aa-disable /etc/apparmor.d/libvirtd
       - run: sudo apparmor_status
+      - run: systemctl status libvirtd
       - run: bash libvirt/setup.sh
       - run: bash libvirt/run.sh vagrant version
       - name: Attempt to download RISCV64 box
@@ -35,6 +38,7 @@ jobs:
           path: libvirt/workdir/
       - run: ls -lah libvirt/workdir/*
       - run: bash libvirt/run.sh -c 'ls -lah .'
+      - run: bash libvirt/run.sh -c 'ls -lah /var/run/libvirt/'
       - run: bash libvirt/run.sh vagrant box add ubuntu_riscv_2024 vagrant-libvirt-ubuntu/ubuntu-riscv-24.04.1.box
       - run: bash libvirt/run.sh vagrant box list
       - run: bash libvirt/run.sh vagrant up

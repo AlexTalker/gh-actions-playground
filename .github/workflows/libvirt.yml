@@ -6,7 +6,7 @@ jobs:
     name: Checkout libvirt setup
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: id;uname -a; df -h; cat /etc/os-release; pwd; mount; sudo apparmor_status || true
       - run: sudo DEBIAN_FRONTEND=noninteractive apt update
       # - run: sudo DEBIAN_FRONTEND=noninteractive apt upgrade
